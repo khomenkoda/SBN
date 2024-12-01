@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shaman Blues Might</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Roboto", sans-serif;
+        background: url("background.jpg") no-repeat center center/cover;
+        color: white;
+      }
+      header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 20vh;
+        font-size: 1.5em;
+        font-weight: bold;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.7);
+      }
+      footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10vh;
+        background: rgba(0, 0, 0, 0.7);
+      }
+      footer a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: white;
+        border: 2px solid white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+      }
+      footer a:hover {
+        background: white;
+        color: black;
+      }
+      .carousel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto;
+        width: 80%;
+      }
+      .carousel img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        display: none;
+      }
+      .carousel img.active {
+        display: block;
+      }
+      .carousel-controls {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+      }
+      .carousel-controls button {
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 0 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .carousel-controls button:hover {
+        background: white;
+        color: black;
+      }
+      .bio {
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 10px;
+        margin: 20px auto;
+        width: 80%;
+        font-family: "Playfair Display", serif;
+        line-height: 1.8;
+        text-align: justify;
+      }
+      .audio-player {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        border-radius: 10px;
+        width: 80%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div id="header-quotes">
+        Music gives a soul to the universe, wings to the mind, flight to the
+        imagination.
+      </div>
+    </header>
+
+    <div class="carousel">
+      <img src="photo1.jpg" class="active" />
+      <img src="photo2.jpg" />
+      <img src="photo3.jpg" />
+      <!-- Add more photos -->
+    </div>
+    <div class="carousel-controls">
+      <button onclick="prevSlide()">&#8592; Prev</button>
+      <button onclick="nextSlide()">Next &#8594;</button>
+    </div>
+
+    <div class="bio">
+      <!-- Bio -->
+      " Hi, peace and love to all! We are 'Shaman Blues Night', a creative music
+      association from Ukraine dedicated to creating ethnic world music. Our
+      short musical stories aim to immerse listeners in various emotional states
+      of the soul and body. i Our mission is to fill your hearts with warmth and
+      bring meaning and goodness into your lives through the subtle energy of
+      music. We focus on sound therapy and resonance therapy using musical
+      instruments. The frequency vibrations of each instrument can have a
+      beneficial effect on the organs of the human body. Our music goes beyond
+      shamanic sounds from the depths of consciousness; it's a journey into the
+      depths of our souls. We offer meditation and communication with nature,
+      utilizing a diverse range of shamanic and ethnic instruments from various
+      cultures. & So, welcome to the journey!"
+    </div>
+
+    <div class="audio-player">
+      <audio controls>
+        <source src="sample1.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <footer>
+      <a href="#">YouTube</a>
+      <a
+        href="https://open.spotify.com/artist/7c2ZNhubJYxlw2goOKSNYP?si=zeW2v3q2QAKLyrAvwEKzhA"
+        >Spotify</a
+      >
+      <a href="#">Apple Music</a>
+      <a href="https://www.facebook.com/groups/shamanbluesnight">Facebook</a>
+      <a href="#">Instagram</a>
+    </footer>
+
+    <script>
+      // Quotes rotation logic
+      const quotes = [
+        "Music gives a soul to the universe, wings to the mind, flight to the imagination.",
+        "Without music, life would be a mistake.",
+        "Music is the universal language of mankind.",
+        "To live is to be musical.",
+        "Music expresses that which cannot be said and on which it is impossible to be silent.",
+        "Music is the divine way to tell beautiful, poetic things to the heart. — Pablo Casals",
+        "Music can change the world because it can change people. — Bono",
+        "I don't know anything about music. In my line you don't have to. — Elvis Presley",
+        "Music is the wine that fills the cup of silence. — Robert Fripp",
+        "If music be the food of love, play on. — William Shakespeare",
+        "Where words fail, music speaks. — Hans Christian Andersen",
+        "A painter paints pictures on canvas. But musicians paint their pictures on silence. — Leopold Stokowski",
+        "The music is not in the notes, but in the silence between. — Wolfgang Amadeus Mozart",
+        "One good thing about music, when it hits you, you feel no pain. — Bob Marley",
+        "Music is a higher revelation than all wisdom and philosophy. — Ludwig van Beethoven",
+        "Music should strike fire from the heart of man, and bring tears from the eyes of woman. — Ludwig van Beethoven",
+        "Life seems to go on without effort when I am filled with music. — George Eliot",
+        "A great song should lift your heart, warm the soul and make you feel good. — Colbie Caillat",
+        "Music is an outburst of the soul. — Frederick Delius",
+        "It is always fatal to have music or poetry interrupted. — George Eliot",
+      ];
+
+      let quoteIndex = 0;
+      setInterval(() => {
+        quoteIndex = (quoteIndex + 1) % quotes.length;
+        document.getElementById("header-quotes").textContent =
+          quotes[quoteIndex];
+      }, 7000);
+
+      // Carousel logic
+      const slides = document.querySelectorAll(".carousel img");
+      let currentSlide = 0;
+
+      function showSlide(index) {
+        slides[currentSlide].classList.remove("active");
+        currentSlide = (index + slides.length) % slides.length;
+        slides[currentSlide].classList.add("active");
+      }
+
+      function nextSlide() {
+        showSlide(currentSlide + 1);
+      }
+
+      function prevSlide() {
+        showSlide(currentSlide - 1);
+      }
+    </script>
+  </body>
+</html>
